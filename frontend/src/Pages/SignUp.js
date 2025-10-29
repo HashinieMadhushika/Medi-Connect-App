@@ -1,5 +1,4 @@
 import './SignUp.css';
-import teamIcon from '../Images/image1.png'; 
 import fullicon from '../Images/image2.jpeg';
 import image1 from '../Images/image3.png';
 import image2 from '../Images/image4.jpeg';
@@ -77,7 +76,7 @@ const SignUp = () => {
   };
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const images = [teamIcon, image2, image3, image1, image4];
+  const images = [image2, image3, image1, image4];
 
   useEffect(() => {
     const interval = setInterval(() => {
