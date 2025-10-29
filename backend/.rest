@@ -1,0 +1,19 @@
+### Signup (Register new user)
+POST http://localhost:5000/api/auth/signup
+Content-Type: application/json
+
+{
+  "fullName": "Test User",
+  "phoneNumber": "1234567890",
+  "email": "test@gmail.com",
+  "password": "test"
+}
+
+### Login (Authenticate existing user)
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@gmail.com",
+  "password": "test"
+}
