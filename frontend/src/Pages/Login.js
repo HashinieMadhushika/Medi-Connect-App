@@ -1,12 +1,14 @@
 import './Login.css';
 import fullicon from '../Images/image2.jpeg';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import navigation
 
 const Login = () => {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
+  const navigate = useNavigate(); // ✅ initialize navigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,9 +19,10 @@ const Login = () => {
     }
   };
 
-  const API_URL = window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "http://backend:5000";
+  const API_URL =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'http://backend:5000';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,7 +34,7 @@ const Login = () => {
       const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData),
       });
 
       const data = await response.json();
@@ -39,10 +42,10 @@ const Login = () => {
       if (response.ok) {
         setMessage('Login successful!');
         setIsError(false);
-        // Optional: Save token to localStorage
         localStorage.setItem('token', data.token);
-        // Redirect to dashboard or home
-        window.location.href = '/dashboard';
+
+        // ✅ Navigate to DoctorsPage after success
+        navigate('/doctors');
       } else {
         setMessage(data.error || 'Login failed');
         setIsError(true);
@@ -57,7 +60,15 @@ const Login = () => {
   };
 
   return (
-    <div className="login-wrapper" style={{ backgroundImage: `url(${fullicon})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
+    <div
+      className="login-wrapper"
+      style={{
+        backgroundImage: `url(${fullicon})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="login-container">
         <div className="login-content">
           <div className="login-header">
@@ -65,18 +76,22 @@ const Login = () => {
             <h2>Login</h2>
           </div>
 
-          {message && <div className={`message ${isError ? 'error' : 'success'}`}>{message}</div>}
+          {message && (
+            <div className={`message ${isError ? 'error' : 'success'}`}>
+              {message}
+            </div>
+          )}
 
           <form className="login-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email">Email</label>
-              <input 
-                type="email" 
-                name="email" 
-                id="email" 
-                value={formData.email} 
-                onChange={handleChange} 
-                required 
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
                 placeholder="Enter your email"
                 disabled={isLoading}
               />
@@ -84,13 +99,13 @@ const Login = () => {
 
             <div className="form-group">
               <label htmlFor="password">Password</label>
-              <input 
-                type="password" 
-                name="password" 
-                id="password" 
-                value={formData.password} 
-                onChange={handleChange} 
-                required 
+              <input
+                type="password"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={handleChange}
+                required
                 placeholder="Enter your password"
                 disabled={isLoading}
               />

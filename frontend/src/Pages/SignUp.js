@@ -2,33 +2,35 @@ import './SignUp.css';
 import fullicon from '../Images/image2.jpeg';
 import image1 from '../Images/image3.png';
 import image2 from '../Images/image4.jpeg';
-import image3 from '../Images/image5.jpeg'; 
-import image4 from '../Images/image6.jpeg'; 
+import image3 from '../Images/image5.jpeg';
+import image4 from '../Images/image6.jpeg';
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Import navigate
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     phoneNumber: '',
     email: '',
-    password: ''
+    password: '',
   });
 
-  const API_URL = window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "http://backend:5000";
+  const API_URL =
+    window.location.hostname === 'localhost'
+      ? 'http://localhost:5000'
+      : 'http://backend:5000';
 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
+  const navigate = useNavigate(); // ✅ Initialize navigate
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }));
-    // Clear any previous messages when user starts typing
     if (message) {
       setMessage('');
       setIsError(false);
@@ -44,24 +46,18 @@ const SignUp = () => {
     try {
       const response = await fetch(`${API_URL}/api/auth/signup`, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       const data = await response.json();
-      
+
       if (response.ok) {
         setMessage('Account created successfully!');
         setIsError(false);
-        // Clear form
-        setFormData({
-          fullName: '',
-          phoneNumber: '',
-          email: '',
-          password: ''
-        });
+
+        // ✅ Navigate to DoctorsPage after signup
+        navigate('/doctors');
       } else {
         setMessage(data.error || 'Signup failed');
         setIsError(true);
@@ -80,32 +76,37 @@ const SignUp = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => 
+      setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 2000); // Change image every 3 second
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [images.length]);
 
   return (
-    <div className="signup-wrapper" 
-         style={{ backgroundImage: `url(${fullicon})`, backgroundSize: 'cover', backgroundPosition: 'center', backgroundRepeat: 'no-repeat' }}>
-    
+    <div
+      className="signup-wrapper"
+      style={{
+        backgroundImage: `url(${fullicon})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+      }}
+    >
       <div className="signup-container">
         <div className="signup-content">
           <div className="signup-header">
             <h1>MediConnect</h1>
             <h2>Create Account</h2>
           </div>
-          
-          {/* Message display */}
+
           {message && (
             <div className={`message ${isError ? 'error' : 'success'}`}>
               {message}
             </div>
           )}
-          
+
           <form className="signup-form" onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="fullName">Full Name</label>
@@ -120,7 +121,7 @@ const SignUp = () => {
                 disabled={isLoading}
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="phoneNumber">Phone Number</label>
               <input
@@ -134,7 +135,7 @@ const SignUp = () => {
                 disabled={isLoading}
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="email">Email</label>
               <input
@@ -148,7 +149,7 @@ const SignUp = () => {
                 disabled={isLoading}
               />
             </div>
-            
+
             <div className="form-group">
               <label htmlFor="password">Password</label>
               <input
@@ -162,32 +163,27 @@ const SignUp = () => {
                 disabled={isLoading}
               />
             </div>
-            
+
             <div className="form-options">
               <div className="remember-me">
-                <input 
-                  type="checkbox" 
-                  id="terms" 
-                  required 
-                  disabled={isLoading}
-                />
+                <input type="checkbox" id="terms" required disabled={isLoading} />
                 <label htmlFor="terms">I agree to the terms and conditions</label>
               </div>
             </div>
-            
-            <button 
-              type="submit" 
+
+            <button
+              type="submit"
               className="signup-button"
               disabled={isLoading}
             >
               {isLoading ? 'Creating Account...' : 'Sign Up'}
             </button>
-            
+
             <p className="login-redirect">
               Already have an account? <a href="/login">Log in</a>
             </p>
           </form>
-          
+
           <div className="signup-footer">
             <div className="doctor-connect">
               <h3>Connect with a Doctor</h3>
@@ -195,10 +191,10 @@ const SignUp = () => {
             </div>
           </div>
         </div>
-        
+
         <div className="signup-image">
           <div className="image-container">
-            <img 
+            <img
               src={images[currentImageIndex]}
               alt="Medical professional illustration"
               className="medical-image"
