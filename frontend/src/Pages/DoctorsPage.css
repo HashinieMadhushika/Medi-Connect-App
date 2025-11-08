@@ -1,0 +1,332 @@
+.doctors-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #eff6ff, #ffffff, #f5f3ff);
+}
+
+/* Header */
+.header {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4b5563;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+}
+.back-btn:hover {
+  color: #2563eb;
+}
+.title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.spacer {
+  width: 96px;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: #fff;
+  padding: 48px 0;
+  text-align: center;
+}
+.hero-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 16px;
+}
+.hero h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.hero p {
+  font-size: 1.1rem;
+  color: #bfdbfe;
+  margin-bottom: 24px;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 9999px;
+  padding: 8px;
+  max-width: 600px;
+  margin: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.search-bar input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  outline: none;
+  color: #1f2937;
+}
+.search-bar button {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.search-bar button:hover {
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+}
+
+/* Filters */
+.filters {
+  max-width: 1200px;
+  margin: auto;
+  padding: 24px 16px;
+}
+.filter-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #374151;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  background: white;
+  color: #374151;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: 0.2s;
+}
+.filter-btn:hover {
+  background: #f3f4f6;
+}
+.filter-btn.active {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  box-shadow: 0 4px 8px rgba(124, 58, 237, 0.4);
+}
+
+/* Doctors Grid */
+.doctors-grid {
+  max-width: 1200px;
+  margin: auto;
+  padding: 32px 16px 48px;
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.doctor-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: 0.3s;
+}
+.doctor-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.doctor-header {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  color: white;
+  text-align: center;
+  padding: 24px;
+}
+.doctor-header .doctor-image {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+.doctor-body {
+  padding: 24px;
+}
+.doctor-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.star-icon {
+  color: #facc15;
+  fill: #facc15;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.rating-value {
+  font-weight: 700;
+  color: #1f2937;
+}
+.consultations {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+.fee {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #2563eb;
+}
+.doctor-info .info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #4b5563;
+  font-size: 0.9rem;
+}
+.available {
+  color: #16a34a;
+  font-weight: 500;
+}
+.languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 8px;
+}
+.lang-tag {
+  font-size: 0.75rem;
+  background: #f3f4f6;
+  color: #4b5563;
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+.book-btn {
+  width: 100%;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-top: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: 0.2s;
+}
+.book-btn:hover {
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.4);
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 16px;
+}
+.modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 400px;
+  width: 100%;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+.modal-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+.modal-image {
+  font-size: 3rem;
+  margin-bottom: 8px;
+}
+.modal-header h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1f2937;
+}
+.modal-header p {
+  color: #2563eb;
+}
+.modal-field {
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+}
+.modal-field label {
+  display: block;
+  font-size: 0.85rem;
+  color: #374151;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+.modal-field input,
+.modal-field select,
+.modal-field textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  padding: 8px;
+  outline: none;
+  font-size: 0.9rem;
+}
+.modal-actions {
+  display: flex;
+  gap: 8px;
+}
+.cancel-btn {
+  flex: 1;
+  background: #e5e7eb;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.cancel-btn:hover {
+  background: #d1d5db;
+}
+.confirm-btn {
+  flex: 1;
+  background: linear-gradient(to right, #2563eb, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.confirm-btn:hover {
+  background: linear-gradient(to right, #1d4ed8, #1e40af);
+}

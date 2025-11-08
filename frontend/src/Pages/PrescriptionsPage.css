@@ -1,0 +1,238 @@
+.prescriptions-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom right, #f0fdf4, #ffffff, #eff6ff);
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Header */
+.header {
+  background: #fff;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+}
+
+.header h1 {
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #16a34a, #2563eb);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.back-btn {
+  color: #555;
+  border: none;
+  background: none;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.cart-icon {
+  position: relative;
+}
+
+.cart-icon span {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: red;
+  color: #fff;
+  font-size: 10px;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #16a34a, #2563eb);
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  margin-top: 1rem;
+}
+
+.tab {
+  padding: 1rem 2rem;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.tab.active {
+  color: #16a34a;
+  border-bottom: 2px solid #16a34a;
+}
+
+/* Upload */
+.upload-section {
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.upload-box {
+  border: 3px dashed #ccc;
+  border-radius: 1rem;
+  padding: 3rem;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #16a34a;
+}
+
+.choose-file-btn {
+  background: linear-gradient(to right, #16a34a, #2563eb);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+/* Browse */
+.search-bar {
+  background: #fff;
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  max-width: 500px;
+  margin: 1rem auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.search-bar input {
+  border: none;
+  flex: 1;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.medicine-grid {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.medicine-card {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.medicine-category {
+  background: #dbeafe;
+  color: #2563eb;
+  font-size: 12px;
+  padding: 3px 8px;
+  border-radius: 12px;
+}
+
+.add-btn {
+  background: linear-gradient(to right, #16a34a, #2563eb);
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 100%;
+  font-weight: 500;
+}
+
+.cart-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 1rem 2rem;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Checkout Modal */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkout-modal {
+  background: #fff;
+  border-radius: 1rem;
+  max-width: 600px;
+  width: 90%;
+  padding: 2rem;
+}
+
+.checkout-section {
+  margin-top: 1rem;
+}
+
+.checkout-block {
+  margin-bottom: 1rem;
+}
+
+.checkout-block textarea, 
+.checkout-block select {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.checkout-buttons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.cancel-btn {
+  flex: 1;
+  background: #e5e7eb;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  cursor: pointer;
+}
+
+.place-btn {
+  flex: 1;
+  background: linear-gradient(to right, #16a34a, #2563eb);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.8rem;
+  cursor: pointer;
+}

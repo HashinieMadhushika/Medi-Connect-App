@@ -23,6 +23,9 @@ import SignUp from './Pages/SignUp';
 import './App.css';
 import HomePage from './Pages/HomePage';
 import Login from './Pages/Login';
+import DoctorsPage from './Pages/DoctorsPage';
+import PrescriptionsPage from './Pages/PrescriptionsPage';
+import EasyToUsePage from './Pages/EasyToUsePage';
 
 function App() {
   return (
@@ -32,6 +35,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/doctors" element={<DoctorsPage />} />
+          <Route path="/prescriptions" element={<PrescriptionsPage />} />
+          <Route path="/platform" element={<EasyToUsePage />} />
         </Routes>
       </div>
     </Router>

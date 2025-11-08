@@ -1,4 +1,4 @@
-// Home.js
+// HomePage.js
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './HomePage.css';
@@ -35,15 +35,27 @@ const HomePage = () => {
         </div>
         
         <div className="features-section">
-          <div className="feature">
+          <div 
+            className="feature" 
+            onClick={() => navigate('/doctors')}
+            style={{ cursor: 'pointer' }}
+          >
             <h3>👨‍⚕️ Connect with Doctors</h3>
             <p>Video consultations with certified healthcare professionals</p>
           </div>
-          <div className="feature">
+          <div 
+            className="feature"
+            onClick={() => navigate('/prescriptions')}
+            style={{ cursor: 'pointer' }}
+          >
             <h3>💊 Online Prescriptions</h3>
             <p>Get prescriptions delivered to your doorstep</p>
           </div>
-          <div className="feature">
+          <div 
+            className="feature"
+            onClick={() => navigate('/platform')}
+            style={{ cursor: 'pointer' }}
+          >
             <h3>📱 Easy to Use</h3>
             <p>User-friendly platform accessible from any device</p>
           </div>

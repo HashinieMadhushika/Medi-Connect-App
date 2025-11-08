@@ -1,0 +1,209 @@
+.easy-page {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom right, #faf5ff, #ebf8ff);
+  color: #333;
+}
+
+/* Header */
+.header {
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.page-title {
+  font-weight: 700;
+  background: linear-gradient(90deg, #7b2ff7, #4a00e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(90deg, #7b2ff7, #4a00e0);
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero-btn {
+  background: #fff;
+  color: #6a00f4;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  transform: scale(1.05);
+}
+
+/* Devices */
+.devices {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.device-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.device-btn {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.device-btn.active {
+  background: linear-gradient(90deg, #7b2ff7, #4a00e0);
+  color: white;
+}
+
+.device-display {
+  background: #fff;
+  margin: auto;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 400px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.device-icon {
+  font-size: 60px;
+}
+
+/* Features */
+.features {
+  padding: 80px 20px;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.feature-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  color: #6a00f4;
+  margin-bottom: 10px;
+}
+
+/* Testimonials */
+.testimonials {
+  background: linear-gradient(to right, #f3e8ff, #e0f2fe);
+  padding: 80px 20px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-radius: 20px;
+  padding: 25px;
+  text-align: center;
+}
+
+/* CTA */
+.cta {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.cta-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #7b2ff7, #4a00e0);
+  color: #fff;
+  border: none;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.btn-outline {
+  background: #fff;
+  color: #6a00f4;
+  border: 2px solid #6a00f4;
+  padding: 14px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+/* Modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 500px;
+  width: 90%;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
