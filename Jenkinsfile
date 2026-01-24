@@ -4,7 +4,7 @@ pipeline {
     environment {
         // Jenkins credentials → type: "Username with password", ID: dockerhub-login
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        DOCKERHUB_USERNAME    = 'hashinie'  // Updated to your Docker Hub username
+        DOCKERHUB_USERNAME    = 'hashinie_madhushika'  // Updated to your Docker Hub username
     }
 
     stages {
