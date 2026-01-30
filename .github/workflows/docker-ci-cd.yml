@@ -37,3 +37,24 @@ jobs:
 
       - name: Docker system prune
         run: docker system prune -af || true
+
+      - name: Copy deploy script to EC2
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: ./deploy_on_ec2.sh
+          target: /home/ubuntu/
+          overwrite: true
+
+      - name: Run deploy script on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            chmod +x /home/ubuntu/deploy_on_ec2.sh
+            /home/ubuntu/deploy_on_ec2.sh
+
