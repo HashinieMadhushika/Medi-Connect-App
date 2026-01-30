@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script to pull latest images and restart containers on EC2
 
-DOCKERHUB_USERNAME="hashinie"
+DOCKERHUB_USERNAME=hashinie
 
 # Pull latest images
 docker pull $DOCKERHUB_USERNAME/medi-backend:latest
