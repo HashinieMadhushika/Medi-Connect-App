@@ -2,10 +2,10 @@ require('dotenv').config();
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host:'mysql',      // docker service name
-  user:'user',       // from docker-compose
-  password:'userpassword',
-  database:'mydb',
+  host: process.env.DB_HOST || 'mysql',      // docker service name
+   user: process.env.DB_USER || 'user',       // from docker-compose
+   password: process.env.DB_PASSWORD || 'userpassword',
+   database: process.env.DB_NAME || 'mydb',
 });
 
 
