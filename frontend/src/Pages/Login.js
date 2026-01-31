@@ -19,10 +19,7 @@ const Login = () => {
     }
   };
 
-  const API_URL =
-    window.location.hostname === 'localhost'
-      ? 'http://localhost:5000'
-      : 'http://backend:5000';
+  const API_URL = `http://${window.location.hostname}:5000`;
 
   const handleSubmit = async (e) => {
     e.preventDefault();

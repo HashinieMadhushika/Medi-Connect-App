@@ -15,10 +15,7 @@ const SignUp = () => {
     password: '',
   });
 
-  const API_URL =
-    window.location.hostname === 'localhost'
-      ? 'http://localhost:5000'
-      : 'http://backend:5000';
+  const API_URL = `http://${window.location.hostname}:5000`;
 
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
