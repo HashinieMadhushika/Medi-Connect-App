@@ -23,7 +23,7 @@ docker stop medi-backend medi-frontend || true
 docker rm medi-backend medi-frontend || true
 
 # Run backend container
-docker run -d --name medi-backend -p 3000:3000 $DOCKERHUB_USERNAME/medi-backend:latest
+docker run -d --name medi-backend -p 5000:5000 $DOCKERHUB_USERNAME/medi-backend:latest
 
 # Run frontend container
 docker run -d --name medi-frontend -p 80:80 $DOCKERHUB_USERNAME/medi-frontend:latest
