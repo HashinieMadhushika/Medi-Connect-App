@@ -2,7 +2,7 @@ require('dotenv').config();
 const mysql = require('mysql2');
 
 const db = mysql.createConnection({
-  host:'mysql_c',      // docker service name
+  host:'mysql',      // docker service name
   user:'user',       // from docker-compose
   password:'userpassword',
   database:'mydb',
