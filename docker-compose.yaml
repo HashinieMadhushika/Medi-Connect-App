@@ -9,19 +9,16 @@ services:
     depends_on:
       - backend
 
-  mysql:
-    image: mysql:8.0
-    container_name: mysql_c
+  mongodb:
+    image: mongo:7.0
+    container_name: mongodb_c
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: mydb
-      MYSQL_USER: user
-      MYSQL_PASSWORD: userpassword
     ports:
-      - "3306:3306"
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: mediconnect
     volumes:
-      - mysql_data:/var/lib/mysql
+      - mongodb_data:/data/db
 
   backend:
     build: ./backend
@@ -30,12 +27,10 @@ services:
     ports:
       - "5000:5000"
     environment:
-      DB_HOST: mysql
-      DB_USER: user
-      DB_PASSWORD: userpassword
-      DB_NAME: mydb
+      MONGO_URI: mongodb://mongodb:27017/mediconnect
+      JWT_SECRET: your-super-secret-jwt-key-change-in-production
     depends_on:
-      - mysql
+      - mongodb
 
 volumes:
-  mysql_data:
+  mongodb_data:

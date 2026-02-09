@@ -1,26 +1,27 @@
 require('dotenv').config();
-const mysql = require('mysql2');
+const mongoose = require('mongoose');
 
-const db = mysql.createConnection({
-  host: process.env.DB_HOST || 'mysql',      // docker service name
-   user: process.env.DB_USER || 'user',       // from docker-compose
-   password: process.env.DB_PASSWORD || 'userpassword',
-   database: process.env.DB_NAME || 'mydb',
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://mongodb:27017/mediconnect';
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(MONGO_URI);
+    console.log('Connected to MongoDB database');
+  } catch (error) {
+    console.error('Error connecting to MongoDB:', error.message);
+    // Retry connection after 5 seconds
+    setTimeout(connectDB, 5000);
+  }
+};
+
+// Handle connection events
+mongoose.connection.on('disconnected', () => {
+  console.log('MongoDB disconnected. Attempting to reconnect...');
+  setTimeout(connectDB, 5000);
 });
 
+mongoose.connection.on('error', (err) => {
+  console.error('MongoDB connection error:', err);
+});
 
-
-function connectWithRetry() {
-  db.connect((err) => {
-    if (err) {
-      console.error('Error connecting to MySQL, retrying in 5s:', err.message);
-      setTimeout(connectWithRetry, 5000);
-    } else {
-      console.log('Connected to MySQL database');
-    }
-  });
-}
-
-connectWithRetry();
-
-module.exports = db;
+module.exports = connectDB;

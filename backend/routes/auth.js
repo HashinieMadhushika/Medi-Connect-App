@@ -1,7 +1,7 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const db = require('../config/db'); // your MySQL connection
+const User = require('../models/User'); // MongoDB User model
 const router = express.Router();
 
 // Signup endpoint
@@ -14,31 +14,31 @@ router.post('/signup', async (req, res) => {
 
   try {
     // Check if user exists
-    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
-      if (err) return res.status(500).json({ error: 'Database error' });
+    const existingUser = await User.findOne({ email: email.toLowerCase() });
+    
+    if (existingUser) {
+      return res.status(409).json({ error: 'User already exists' });
+    }
 
-      if (results.length > 0) {
-        return res.status(409).json({ error: 'User already exists' });
-      }
+    // Hash password
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Hash password
-      const hashedPassword = await bcrypt.hash(password, 10);
+    // Create new user
+    const newUser = new User({
+      fullName,
+      phoneNumber,
+      email: email.toLowerCase(),
+      password: hashedPassword
+    });
 
-      // Insert new user
-      db.query(
-        'INSERT INTO users (full_name, phone_number, email, password) VALUES (?, ?, ?, ?)',
-        [fullName, phoneNumber, email, hashedPassword],
-        (err, results) => {
-          if (err) return res.status(500).json({ error: 'Error creating user' });
+    const savedUser = await newUser.save();
 
-          res.status(201).json({ 
-            message: 'User created successfully',
-            userId: results.insertId 
-          });
-        }
-      );
+    res.status(201).json({ 
+      message: 'User created successfully',
+      userId: savedUser._id 
     });
   } catch (error) {
+    console.error('Signup error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });
@@ -52,30 +52,30 @@ router.post('/login', async (req, res) => {
   }
 
   try {
-    db.query('SELECT * FROM users WHERE email = ?', [email], async (err, results) => {
-      if (err) return res.status(500).json({ error: 'Database error' });
+    // Find user by email
+    const user = await User.findOne({ email: email.toLowerCase() });
 
-      if (results.length === 0) {
-        return res.status(401).json({ error: 'Invalid email or password' });
-      }
+    if (!user) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
 
-      const user = results[0];
-      const validPassword = await bcrypt.compare(password, user.password);
+    // Validate password
+    const validPassword = await bcrypt.compare(password, user.password);
 
-      if (!validPassword) {
-        return res.status(401).json({ error: 'Invalid email or password' });
-      }
+    if (!validPassword) {
+      return res.status(401).json({ error: 'Invalid email or password' });
+    }
 
-      // Generate JWT token
-      const token = jwt.sign(
-        { id: user.id, email: user.email },
-        process.env.JWT_SECRET,
-        { expiresIn: '1d' }
-      );
+    // Generate JWT token
+    const token = jwt.sign(
+      { id: user._id, email: user.email },
+      process.env.JWT_SECRET || 'your-secret-key',
+      { expiresIn: '1d' }
+    );
 
-      res.status(200).json({ message: 'Login successful', token });
-    });
+    res.status(200).json({ message: 'Login successful', token });
   } catch (error) {
+    console.error('Login error:', error);
     res.status(500).json({ error: 'Server error' });
   }
 });

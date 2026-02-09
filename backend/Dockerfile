@@ -5,8 +5,8 @@ COPY package.json .
 RUN npm install
 COPY . .
 
-COPY wait-for-mysql.sh /wait-for-mysql.sh
-RUN chmod +x /wait-for-mysql.sh
+COPY wait-for-mongodb.sh /wait-for-mongodb.sh
+RUN chmod +x /wait-for-mongodb.sh
 
 EXPOSE 5000
-CMD ["/wait-for-mysql.sh", "mysql_c", "node", "server.js"]
+CMD ["/wait-for-mongodb.sh", "mongodb_c", "node", "server.js"]
