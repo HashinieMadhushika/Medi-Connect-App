@@ -14,6 +14,14 @@ fi
 # Log in to Docker Hub
 echo "$DOCKERHUB_TOKEN" | docker login -u "$DOCKERHUB_USERNAME" --password-stdin
 
+# Clean up unused Docker resources to free disk space
+echo "Cleaning up Docker resources..."
+docker system prune -af --volumes || true
+docker volume prune -f || true
+
+# Display available disk space
+df -h
+
 # Pull latest images
 docker pull $DOCKERHUB_USERNAME/medi-backend:latest
 docker pull $DOCKERHUB_USERNAME/medi-frontend:latest
