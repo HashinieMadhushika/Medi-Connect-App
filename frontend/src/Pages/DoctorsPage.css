@@ -27,9 +27,28 @@
   transition: color 0.2s;
   background: none;
   border: none;
+  cursor: pointer;
 }
 .back-btn:hover {
   color: #2563eb;
+}
+.view-consultations-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.view-consultations-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 .title {
   font-size: 1.5rem;
@@ -38,9 +57,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-.spacer {
-  width: 96px;
 }
 
 /* Hero */

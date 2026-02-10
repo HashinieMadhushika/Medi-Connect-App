@@ -40,6 +40,10 @@ const Login = () => {
         setMessage('Login successful!');
         setIsError(false);
         localStorage.setItem('token', data.token);
+        localStorage.setItem('userId', data.userId);
+        if (data.user) {
+          localStorage.setItem('user', JSON.stringify(data.user));
+        }
 
         // ✅ Navigate to DoctorsPage after success
         navigate('/doctors');

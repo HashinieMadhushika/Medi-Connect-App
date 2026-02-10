@@ -1,0 +1,275 @@
+.consultations-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding-bottom: 50px;
+}
+
+.header {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  color: #667eea;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: #f0f0f0;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #333;
+  margin: 0;
+}
+
+.spacer {
+  width: 120px;
+}
+
+.filters {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: white;
+  color: #667eea;
+  border-color: white;
+}
+
+.consultations-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  padding: 60px 20px;
+  color: white;
+  font-size: 18px;
+}
+
+.no-data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-data h3 {
+  font-size: 24px;
+  margin: 0 0 10px 0;
+  color: white;
+}
+
+.no-data p {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 30px;
+}
+
+.book-now-btn {
+  padding: 12px 32px;
+  background: white;
+  color: #667eea;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.book-now-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.consultations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 24px;
+}
+
+.consultation-card {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.consultation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.consultation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.doctor-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.doctor-avatar {
+  font-size: 48px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9ff;
+  border-radius: 12px;
+}
+
+.doctor-info h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.specialty {
+  color: #666;
+  font-size: 14px;
+  margin: 4px 0 0 0;
+}
+
+.status-badge {
+  padding: 6px 16px;
+  border-radius: 20px;
+  color: white;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.consultation-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #666;
+  font-size: 15px;
+}
+
+.info-row svg {
+  color: #667eea;
+  flex-shrink: 0;
+}
+
+.info-row.symptoms {
+  padding: 12px;
+  background: #f8f9ff;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.consultation-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.consultation-type {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fee {
+  font-size: 20px;
+  font-weight: 700;
+  color: #667eea;
+}
+
+@media (max-width: 768px) {
+  .consultations-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+
+  .filters {
+    justify-content: center;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .spacer {
+    display: none;
+  }
+}

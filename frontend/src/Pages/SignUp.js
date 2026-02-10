@@ -52,6 +52,11 @@ const SignUp = () => {
       if (response.ok) {
         setMessage('Account created successfully!');
         setIsError(false);
+        
+        // Save userId from response
+        if (data.userId) {
+          localStorage.setItem('userId', data.userId);
+        }
 
         // ✅ Navigate to DoctorsPage after signup
         navigate('/doctors');

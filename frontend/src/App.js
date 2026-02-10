@@ -26,6 +26,7 @@ import Login from './Pages/Login';
 import DoctorsPage from './Pages/DoctorsPage';
 import PrescriptionsPage from './Pages/PrescriptionsPage';
 import EasyToUsePage from './Pages/EasyToUsePage';
+import MyConsultations from './Pages/MyConsultations';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/login" element={<Login />} />
           <Route path="/doctors" element={<DoctorsPage />} />
+          <Route path="/consultations" element={<MyConsultations />} />
           <Route path="/prescriptions" element={<PrescriptionsPage />} />
           <Route path="/platform" element={<EasyToUsePage />} />
         </Routes>
