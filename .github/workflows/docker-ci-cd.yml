@@ -70,3 +70,14 @@ jobs:
             export DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}
             export DOCKERHUB_TOKEN=${{ secrets.DOCKERHUB_TOKEN }}
             /home/ubuntu/deploy_on_ec2.sh
+
+      # 1️⃣1️⃣ Seed database with sample doctors
+      - name: Seed database with doctors
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ${{ secrets.EC2_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            echo "Seeding database with sample doctors..."
+            docker exec medi-backend npm run seed || true
