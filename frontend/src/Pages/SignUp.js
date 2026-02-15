@@ -99,7 +99,7 @@ const SignUp = () => {
       <div className="signup-container">
         <div className="signup-content">
           <div className="signup-header">
-            <h1>MediConnect</h1>
+            <h1>Hashinie Madhushika</h1>
             <h2>Create Account</h2>
           </div>
 

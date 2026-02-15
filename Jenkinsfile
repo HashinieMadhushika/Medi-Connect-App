@@ -4,8 +4,8 @@ pipeline {
     environment {
         // Jenkins credentials → type: "Username with password", ID: dockerhub-login
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
-        DOCKERHUB_USERNAME    = 'hashinie'  // Updated to your Docker Hub username
-        EC2_HOST              = '3.80.227.4' // Replace with your EC2 public IP or hostname
+        DOCKERHUB_USERNAME    = 'hashinie'  
+        EC2_HOST              = '3.80.227.4' 
     }
 
     stages {
