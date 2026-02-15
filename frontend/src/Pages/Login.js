@@ -74,7 +74,7 @@ const Login = () => {
         <div className="login-content">
           <div className="login-header">
             <h1>Welfealth</h1>
-            <h2>Login</h2>
+            <h2>Login now</h2>
           </div>
 
           {message && (
